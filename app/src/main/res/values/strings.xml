@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">Game</string>
+    <string name="instruction1">We’ve chosen a rule that some sequences of three numbers obey - and some do not. Your
+        job is to guess what the rule is. \n \n We’ll start by telling you that the sequence 3, 4, 5 obeys the rule:
+    </string>
+    <string name="instructionNum1">3</string>
+    <string name="instructionNum2">4</string>
+    <string name="instructionNum3">5</string>
+    <string name="instructionToF">true</string>
+    <string name="instruction2">Now it’s your turn. Enter a number sequence in the boxes in next tab, and we’ll tell you
+        whether it satisfies the rule or not. You can test as many sequences as you want.
+    </string>
+    <string name="checkButtonText">check</string>
+    <string name="go_to_play">Go to Play</string>
+</resources>
