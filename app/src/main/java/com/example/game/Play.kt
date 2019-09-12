@@ -3,6 +3,7 @@ package com.example.game
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.support.v7.widget.LinearLayoutManager
+import android.text.TextUtils.replace
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -113,11 +114,11 @@ class Play : Fragment() {
             editText.text.clear()
             editText.requestFocus()
             return false
-        } else if ("." in text) {
+        } else if ("." in text || text.startsWith("0") || text.startsWith("-0")) {
             when (editText) {
-                numberEditText1 -> num1 = num1!!.toDouble().toString()
-                numberEditText2 -> num2 = num2!!.toDouble().toString()
-                numberEditText3 -> num3 = num3!!.toDouble().toString()
+                numberEditText1 -> num1 = changeOutput(num1!!.toDouble().toString())
+                numberEditText2 -> num2 = changeOutput(num2!!.toDouble().toString())
+                numberEditText3 -> num3 = changeOutput(num3!!.toDouble().toString())
             }
             return true
         } else {
@@ -133,6 +134,16 @@ class Play : Fragment() {
     private fun addRow(row1: String, row2: String, row3: String, rowToF: Boolean): List<Num> {
         num.add(Num(row1, row2, row3, rowToF))
         return num
+    }
+
+    private fun changeOutput(numString: String): String {
+        return if (numString == "0.0" || numString == "-0.0") {
+            "0"
+        } else if (numString.endsWith(".0") ) {
+            numString.replace(".0", "")
+        } else {
+            numString
+        }
     }
 
 }
